@@ -1,0 +1,57 @@
+#rock paper scissors
+
+#              rock    paper   scissors
+#   rock        0       -1      -2
+#
+#   paper       1       0       -1
+#
+#   scissors    2       1       0
+
+#    if 0, draw
+#    if 1 or -2, Player wins
+#    if 2 or -1, Computer Wins
+
+import random
+
+player_choice = input("Enter R, P, or S:")
+player_pick = ""
+player_RPS = ""
+
+if player_choice == "R":
+    player_pick = 0
+    player_RPS = "Rock"
+elif player_choice == "P":
+    player_pick = 1
+    player_RPS = "Paper"
+else:
+    player_pick = 2
+    player_RPS = "Scissors"
+
+
+computer_choices = [0,1,2] # R P S
+
+computer_pick = random.choice(computer_choices)
+computer_RPS = ""
+if computer_pick == 0:
+    computer_RPS = "Rock"
+elif computer_pick == 1:
+    computer_RPS = "Paper"
+else:
+    computer_RPS = "Scissors"
+
+   
+pick_comparison = player_pick - computer_pick
+
+results = ""
+print("You picked " + player_RPS)
+print("I picked " + computer_RPS)
+
+
+if pick_comparison == 0:
+    results = "Draw"
+elif pick_comparison == 1 or pick_comparison == -2:
+    results = "Player Wins"
+else:
+    results = "Computer Wins"
+
+print(results)
